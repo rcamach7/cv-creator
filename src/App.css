@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  height: 100vh;
+
+  background-color: rgb(204, 204, 204);
+}
+
+/* Header */
+.App-header {
+  height: 100px;
+
+  color: white;
+  font-family: "Comic Sans MS";
+  font-size: 50px;
+
+  background-color: rgb(51, 51, 51);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* main-container that holds input fields and generated CV */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Extra Box For Debugging */
+.debug {
+  width: 700px;
+  height: 200px;
+
+  margin-top: 25px;
+  padding: 25px;
+
+  outline: auto;
+}
+
+/* The container that holds all input related components  */
+.input-container {
+  width: 700px;
+  height: 500px;
+
+  margin-top: 25px;
+  padding: 15px;
+
+  background-color: rgb(238, 238, 238);
+  outline: auto;
+}
+
+/* Personal Information Input Component */
+.personalInformation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+textarea,
+input {
+  resize: none;
+  padding: 2.5px;
+}
