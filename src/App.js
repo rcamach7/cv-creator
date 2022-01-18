@@ -122,12 +122,6 @@ function App() {
     setPersonalInformation(updatedPersonalInformation);
   };
 
-  const printState = () => {
-    console.log(personalInformation);
-    console.log(experiences);
-    console.log(education);
-  };
-
   const loadExampleData = () => {
     const personalInfo = {
       id: personalInformation.id,
@@ -212,7 +206,9 @@ function App() {
               handleSaveEducation={handleSaveEducation}
             />
           </div>
-          <button onClick={() => loadExampleData()}>Load Example Data</button>
+          <button className="defaultData-btn" onClick={() => loadExampleData()}>
+            Load Example Data
+          </button>
         </div>
 
         <div className="output-container">
@@ -221,10 +217,6 @@ function App() {
             experiences={experiences}
             education={education}
           />
-        </div>
-
-        <div className="debug">
-          <button onClick={() => printState()}>Print State</button>
         </div>
       </main>
     </div>

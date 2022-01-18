@@ -84,13 +84,19 @@ button:hover {
 }
 
 .del-btn {
-  color: white;
-  background-color: red;
+  background-color: rgb(228, 102, 102);
+  width: 100%;
 }
 
 .save-btn {
+  background-color: rgb(94, 216, 94);
+  width: 100%;
+}
+
+.defaultData-btn {
+  background-color: rgb(20, 62, 112);
+  margin-top: 25px;
   color: white;
-  background-color: green;
 }
 
 /* Personal Information Input Component */
