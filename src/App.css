@@ -55,6 +55,24 @@
   outline: auto;
 }
 
+textarea,
+input {
+  resize: none;
+  padding: 2.5px;
+}
+
+button {
+  color: black;
+  text-align: center;
+  padding: 2.5px 5px 2.5px 5px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+button:hover {
+  background-color: rgb(191, 191, 191);
+}
+
 /* Personal Information Input Component */
 .personalInformation-form {
   display: flex;
@@ -62,8 +80,13 @@
   gap: 5px;
 }
 
-textarea,
-input {
-  resize: none;
-  padding: 2.5px;
+/* Experiences input Component */
+.Experiences {
+  margin-top: 15px;
+}
+
+.experience-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
