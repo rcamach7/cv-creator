@@ -3,6 +3,7 @@ import { useState } from "react";
 function Experience(props) {
   const [position, setPosition] = useState("");
   const [company, setCompany] = useState("");
+  const [location, setLocation] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   return (
@@ -22,6 +23,12 @@ function Experience(props) {
         />
         <input
           type="text"
+          id="experience-company"
+          placeholder="Company Name"
+          onChange={(e) => setLocation(e.target.value)}
+        />
+        <input
+          type="text"
           id="experience-from"
           placeholder="Start Date"
           onChange={(e) => setFrom(e.target.value)}
@@ -36,7 +43,14 @@ function Experience(props) {
       <button
         className="save-btn"
         onClick={() =>
-          props.handleExperienceSave(props.id, position, company, from, to)
+          props.handleExperienceSave(
+            props.id,
+            position,
+            company,
+            location,
+            from,
+            to
+          )
         }
       >
         Save

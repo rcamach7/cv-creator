@@ -1,3 +1,5 @@
+import stockImage from "../assets/stock.jpeg";
+
 function DisplayCV(props) {
   return (
     <div className="DisplayCV">
@@ -16,12 +18,13 @@ function DisplayCV(props) {
           {props.experiences.map((exp, i) => {
             return (
               <div className="cv-experienceSection" key={i}>
-                <p className="cv-experienceSection-child">
+                <p className="cv-experienceSection-child cv-subSection">
                   {exp.from} - {exp.to}
                 </p>
                 <div className="workDetails">
-                  <p>{exp.position}</p>
+                  <p className="cv-subSection">{exp.position}</p>
                   <p>{exp.company}</p>
+                  <p>{exp.location}</p>
                 </div>
               </div>
             );
@@ -29,11 +32,11 @@ function DisplayCV(props) {
 
           <p className="cv-section">Education</p>
           <div className="cv-educationSection">
-            <p className="cv-educationSection-child">
+            <p className="cv-educationSection-child cv-subSection">
               {props.education.from} - {props.education.to}
             </p>
             <div className="educationDetails">
-              <p>{props.education.institution}</p>
+              <p className="cv-subSection">{props.education.institution}</p>
               <p>{props.education.certification}</p>
               <p>{props.education.location}</p>
             </div>
@@ -41,6 +44,7 @@ function DisplayCV(props) {
         </div>
         {/* The rest of the personal details goes here */}
         <div className="body-personalDetails">
+          <img src={stockImage} alt="" />
           <p className="cv-section">Personal Details</p>
 
           <p className="cv-subSection">Address</p>

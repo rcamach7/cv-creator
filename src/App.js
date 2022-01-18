@@ -22,6 +22,7 @@ function App() {
       id: uuidv4(),
       position: "",
       company: "",
+      location: "",
       from: "",
       to: "",
     },
@@ -53,6 +54,7 @@ function App() {
     experienceId,
     positionIn,
     companyIn,
+    locationIn,
     fromIn,
     toIn
   ) => {
@@ -60,6 +62,7 @@ function App() {
       if (experience.id === experienceId) {
         experience.position = positionIn;
         experience.company = companyIn;
+        experience.location = locationIn;
         experience.from = fromIn;
         experience.to = toIn;
       }
@@ -139,6 +142,7 @@ function App() {
         id: uuidv4(),
         position: "Full Stack Web Developer",
         company: "Tesla",
+        location: "Los Angeles, California",
         from: "2018",
         to: "current",
       },
@@ -146,6 +150,7 @@ function App() {
         id: uuidv4(),
         position: "Astronaut",
         company: "NASA",
+        location: "Washington, DC",
         from: "2015",
         to: "2018",
       },
@@ -153,6 +158,7 @@ function App() {
         id: uuidv4(),
         position: "Aircraft Pilot",
         company: "United States Navy",
+        location: "San Diego, California",
         from: "2010",
         to: "current",
       },
@@ -198,6 +204,7 @@ function App() {
             <h3>Education</h3>
             <Education handleSaveEducation={handleSaveEducation} />
           </div>
+          <button onClick={() => loadExampleData()}>Load Example Data</button>
         </div>
 
         <div className="output-container">
@@ -210,7 +217,6 @@ function App() {
 
         <div className="debug">
           <button onClick={() => printState()}>Print State</button>
-          <button onClick={() => loadExampleData()}>Load Example Data</button>
         </div>
       </main>
     </div>
