@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Experience() {
+function Experience(props) {
   const [position, setPosition] = useState("");
   const [company, setCompany] = useState("");
   const [from, setFrom] = useState("");
@@ -33,7 +33,16 @@ function Experience() {
           onChange={(e) => setTo(e.target.value)}
         />
       </form>
-      <button>Delete</button>
+      <button
+        onClick={() =>
+          props.handleExperienceSave(props.id, position, company, from, to)
+        }
+      >
+        Save
+      </button>
+      <button onClick={() => props.handleDeleteExperience(props.id)}>
+        Delete
+      </button>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import PersonalInformation from "./components/PersonalInformation";
 import Experience from "./components/Experience";
 
@@ -14,22 +15,54 @@ function App() {
   // Experiences Array, since we can have more than one
   const [experiences, setExperiences] = useState([]);
 
-  const printState = () => {
-    // console.log(
-    //   `Full Name: ${fullName}\npersonalTitle: ${personalTitle}\npersonalAddress: ${personalAddress}\npersonalPhone: ${personalPhone}\npersonalEmail: ${personalEmail}\npersonalDescription: ${personalDescription}`
-    // );
-    console.log(experiences);
+  const addExperience = () => {
+    const updatedExperiences = [
+      ...experiences,
+      {
+        id: uuidv4(),
+        position: "",
+        company: "",
+        from: "",
+        to: "",
+      },
+    ];
+
+    setExperiences(updatedExperiences);
   };
 
-  const addExperience = () => {
-    // ID
-    const randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-    const uniqid = randLetter + Date.now();
+  const handleExperienceSave = (
+    experienceId,
+    positionIn,
+    companyIn,
+    fromIn,
+    toIn
+  ) => {
+    experiences.forEach((experience) => {
+      if (experience.id === experienceId) {
+        experience.position = positionIn;
+        experience.company = companyIn;
+        experience.from = fromIn;
+        experience.to = toIn;
+      }
+    });
+  };
 
-    const curExperiences = experiences;
-    curExperiences.push(<Experience key={uniqid} />);
+  const handleDeleteExperience = (id) => {
+    let indexToDelete = -1;
+    experiences.forEach((experience, i) => {
+      if (experience.id === id) {
+        indexToDelete = i;
+      }
+    });
 
-    setExperiences(curExperiences);
+    const updatedExperiences = [...experiences];
+    updatedExperiences.splice(indexToDelete, 1);
+
+    setExperiences(updatedExperiences);
+  };
+
+  const printState = () => {
+    console.log(experiences);
   };
 
   return (
@@ -47,8 +80,15 @@ function App() {
           />
           <div className="Experiences">
             <h3>Experiences</h3>
-            {experiences.forEach((experience) => {
-              return experience;
+            {experiences.map((experience) => {
+              return (
+                <Experience
+                  key={experience.id}
+                  id={experience.id}
+                  handleExperienceSave={handleExperienceSave}
+                  handleDeleteExperience={handleDeleteExperience}
+                />
+              );
             })}
             <button onClick={() => addExperience()}>Add Experience</button>
           </div>
