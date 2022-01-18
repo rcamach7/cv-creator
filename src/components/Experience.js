@@ -34,13 +34,17 @@ function Experience(props) {
         />
       </form>
       <button
+        className="save-btn"
         onClick={() =>
           props.handleExperienceSave(props.id, position, company, from, to)
         }
       >
         Save
       </button>
-      <button onClick={() => props.handleDeleteExperience(props.id)}>
+      <button
+        className="del-btn"
+        onClick={() => props.handleDeleteExperience(props.id)}
+      >
         Delete
       </button>
     </div>

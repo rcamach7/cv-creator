@@ -130,7 +130,7 @@ function App() {
             handleSavePersonalInformation={handleSavePersonalInformation}
           />
           <div className="Experiences">
-            <h3>Experiences</h3>
+            <h3>Experience(s)</h3>
             {experiences.map((experience) => {
               return (
                 <Experience
@@ -141,7 +141,6 @@ function App() {
                 />
               );
             })}
-            <br />
             <button onClick={() => addExperience()}>Add Experience</button>
           </div>
 
@@ -150,6 +149,8 @@ function App() {
             <Education handleSaveEducation={handleSaveEducation} />
           </div>
         </div>
+
+        <div className="output-container">Hello World</div>
 
         <div className="debug">
           <button onClick={() => printState()}>Print State</button>

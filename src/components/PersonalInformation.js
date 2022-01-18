@@ -49,6 +49,7 @@ function PersonalInformation(props) {
         />
       </form>
       <button
+        className="save-btn"
         onClick={() =>
           props.handleSavePersonalInformation(
             fullName,
