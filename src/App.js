@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import PersonalInformation from "./components/PersonalInformation";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
+import DisplayCV from "./components/DisplayCV";
 
 function App() {
   // All Relevant Information For CV
@@ -121,6 +122,55 @@ function App() {
     console.log(education);
   };
 
+  const loadExampleData = () => {
+    const personalInfo = {
+      id: personalInformation.id,
+      fullName: "Napoleon Hill",
+      personalTitle: "Software Engineer",
+      personalAddress: "1600 Pennsylvania Avenue, Washington, DC 20500",
+      personalPhone: "(000)123-45-67",
+      personalEmail: "example@spacex.com",
+      personalDescription:
+        "My goal is to gain a challenging opportunity and to help create, improve, and innovate standard operation procedures to increase quality and speed to market, lower operating costs, resulting in an enhanced customer experience.",
+    };
+
+    const exp = [
+      {
+        id: uuidv4(),
+        position: "Full Stack Web Developer",
+        company: "Tesla",
+        from: "2018",
+        to: "current",
+      },
+      {
+        id: uuidv4(),
+        position: "Astronaut",
+        company: "NASA",
+        from: "2015",
+        to: "2018",
+      },
+      {
+        id: uuidv4(),
+        position: "Aircraft Pilot",
+        company: "United States Navy",
+        from: "2010",
+        to: "current",
+      },
+    ];
+
+    const edu = {
+      institution: "Harvard University",
+      certification: "B.S in Computer Science",
+      location: "Cambridge, Massachusetts",
+      from: "2017",
+      to: "current",
+    };
+
+    setPersonalInformation(personalInfo);
+    setExperiences(exp);
+    setEducation(edu);
+  };
+
   return (
     <div className="App">
       <header className="App-header">CV CREATOR</header>
@@ -130,7 +180,7 @@ function App() {
             handleSavePersonalInformation={handleSavePersonalInformation}
           />
           <div className="Experiences">
-            <h3>Experiences</h3>
+            <h3>Experience(s)</h3>
             {experiences.map((experience) => {
               return (
                 <Experience
@@ -141,7 +191,6 @@ function App() {
                 />
               );
             })}
-            <br />
             <button onClick={() => addExperience()}>Add Experience</button>
           </div>
 
@@ -151,8 +200,17 @@ function App() {
           </div>
         </div>
 
+        <div className="output-container">
+          <DisplayCV
+            personalInformation={personalInformation}
+            experiences={experiences}
+            education={education}
+          />
+        </div>
+
         <div className="debug">
           <button onClick={() => printState()}>Print State</button>
+          <button onClick={() => loadExampleData()}>Load Example Data</button>
         </div>
       </main>
     </div>

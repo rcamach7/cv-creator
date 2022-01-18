@@ -41,6 +41,7 @@ function Education(props) {
         />
       </form>
       <button
+        className="save-btn"
         onClick={() =>
           props.handleSaveEducation(
             institution,
