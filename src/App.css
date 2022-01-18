@@ -5,7 +5,7 @@
 }
 
 .App {
-  height: 100vh;
+  height: 100%;
 
   background-color: rgb(204, 204, 204);
 }
@@ -46,13 +46,30 @@
 /* The container that holds all input related components  */
 .input-container {
   width: 700px;
-  height: 500px;
 
   margin-top: 25px;
   padding: 15px;
 
   background-color: rgb(238, 238, 238);
   outline: auto;
+}
+
+textarea,
+input {
+  resize: none;
+  padding: 2.5px;
+}
+
+button {
+  color: black;
+  text-align: center;
+  padding: 2.5px 5px 2.5px 5px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+button:hover {
+  background-color: rgb(191, 191, 191);
 }
 
 /* Personal Information Input Component */
@@ -62,8 +79,13 @@
   gap: 5px;
 }
 
-textarea,
-input {
-  resize: none;
-  padding: 2.5px;
+/* Experiences input Component */
+.Experiences {
+  margin-top: 15px;
+}
+
+.experience-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
