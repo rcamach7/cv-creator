@@ -184,6 +184,7 @@ function App() {
         <div className="input-container">
           <PersonalInformation
             handleSavePersonalInformation={handleSavePersonalInformation}
+            personalInformation={personalInformation}
           />
           <div className="Experiences">
             <h3>Experience(s)</h3>
@@ -194,6 +195,7 @@ function App() {
                   id={experience.id}
                   handleExperienceSave={handleExperienceSave}
                   handleDeleteExperience={handleDeleteExperience}
+                  experiences={experiences}
                 />
               );
             })}
@@ -202,7 +204,10 @@ function App() {
 
           <div className="Education-Container">
             <h3>Education</h3>
-            <Education handleSaveEducation={handleSaveEducation} />
+            <Education
+              education={education}
+              handleSaveEducation={handleSaveEducation}
+            />
           </div>
           <button onClick={() => loadExampleData()}>Load Example Data</button>
         </div>
