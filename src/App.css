@@ -137,3 +137,69 @@ button:hover {
   border: solid black 2.5px;
   border-radius: 5px;
 }
+
+/* DisplayCV Component Styling */
+.DisplayCV {
+}
+
+.displayCv-intro {
+  height: 100px;
+  padding: 15px;
+
+  color: white;
+  background-color: rgb(20, 62, 113);
+}
+
+/* Subsections */
+.cv-section {
+  font-size: 1.2em;
+  font-weight: bolder;
+  margin-bottom: 5px;
+  margin-top: 10px;
+
+  border-bottom: solid grey 2px;
+}
+
+.cv-subSection {
+  font-weight: bolder;
+  margin-top: 5px;
+}
+
+.cv-experienceSection,
+.cv-educationSection {
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.cv-experienceSection-child,
+.cv-educationSection-child {
+  width: 150px;
+}
+
+.educationDetails,
+.workDetails {
+  width: 200px;
+}
+
+/* container for the rest of cv info and personal details */
+.displayCv-body {
+  display: flex;
+
+  /* Temp */
+  height: 500px;
+}
+
+.body-generalInfo {
+  padding: 0 15px 15px 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 0px 0px;
+
+  flex: 3;
+}
+
+.body-personalDetails {
+  padding: 15px;
+
+  flex: 1;
+}
