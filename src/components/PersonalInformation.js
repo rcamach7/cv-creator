@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 function PersonalInformation(props) {
+  const [fullName, setFullName] = useState("");
+  const [personalTitle, setPersonalTitle] = useState("");
+  const [personalAddress, setPersonalAddress] = useState("");
+  const [personalPhone, setPersonalPhone] = useState("");
+  const [personalEmail, setPersonalEmail] = useState("");
+  const [personalDescription, setPersonalDescription] = useState("");
   return (
     <div className="PersonalInformation">
       <form className="personalInformation-form">
@@ -7,39 +15,53 @@ function PersonalInformation(props) {
           type="text"
           id="full-name"
           placeholder="Full Name"
-          onChange={(e) => props.setFullName(e.target.value)}
+          onChange={(e) => setFullName(e.target.value)}
         />
         <input
           type="text"
           id="personal-title"
           placeholder="Current Title"
-          onChange={(e) => props.setPersonalTitle(e.target.value)}
+          onChange={(e) => setPersonalTitle(e.target.value)}
         />
         <input
           type="text"
           id="personal-address"
           placeholder="Current Address"
-          onChange={(e) => props.setPersonalAddress(e.target.value)}
+          onChange={(e) => setPersonalAddress(e.target.value)}
         />
         <input
           type="text"
           id="personal-phone"
           placeholder="Phone Number"
-          onChange={(e) => props.setPersonalPhone(e.target.value)}
+          onChange={(e) => setPersonalPhone(e.target.value)}
         />
         <input
           type="text"
           id="personal-email"
           placeholder="Current Email Address"
-          onChange={(e) => props.setPersonalEmail(e.target.value)}
+          onChange={(e) => setPersonalEmail(e.target.value)}
         />
         <textarea
           type="text"
           id="personal-description"
           placeholder="Description Of Yourself"
-          onChange={(e) => props.setPersonalDescription(e.target.value)}
+          onChange={(e) => setPersonalDescription(e.target.value)}
         />
       </form>
+      <button
+        onClick={() =>
+          props.handleSavePersonalInformation(
+            fullName,
+            personalTitle,
+            personalAddress,
+            personalPhone,
+            personalEmail,
+            personalDescription
+          )
+        }
+      >
+        Save
+      </button>
     </div>
   );
 }

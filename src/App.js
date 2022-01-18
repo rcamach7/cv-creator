@@ -3,17 +3,35 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import PersonalInformation from "./components/PersonalInformation";
 import Experience from "./components/Experience";
+import Education from "./components/Education";
 
 function App() {
   // All Relevant Information For CV
-  const [fullName, setFullName] = useState("");
-  const [personalTitle, setPersonalTitle] = useState("");
-  const [personalAddress, setPersonalAddress] = useState("");
-  const [personalPhone, setPersonalPhone] = useState("");
-  const [personalEmail, setPersonalEmail] = useState("");
-  const [personalDescription, setPersonalDescription] = useState("");
-  // Experiences Array, since we can have more than one
-  const [experiences, setExperiences] = useState([]);
+  const [personalInformation, setPersonalInformation] = useState({
+    id: uuidv4(),
+    fullName: "",
+    personalTitle: "",
+    personalAddress: "",
+    personalPhone: "",
+    personalEmail: "",
+    personalDescription: "",
+  });
+  const [experiences, setExperiences] = useState([
+    {
+      id: uuidv4(),
+      position: "",
+      company: "",
+      from: "",
+      to: "",
+    },
+  ]);
+  const [education, setEducation] = useState({
+    institution: "",
+    certification: "",
+    location: "",
+    from: "",
+    to: "",
+  });
 
   const addExperience = () => {
     const updatedExperiences = [
@@ -61,8 +79,46 @@ function App() {
     setExperiences(updatedExperiences);
   };
 
+  const handleSaveEducation = (
+    institutionIn,
+    certificationIn,
+    locationIn,
+    fromIn,
+    toIn
+  ) => {
+    const updatedEducation = { ...education };
+    updatedEducation.institution = institutionIn;
+    updatedEducation.certification = certificationIn;
+    updatedEducation.location = locationIn;
+    updatedEducation.from = fromIn;
+    updatedEducation.to = toIn;
+
+    setEducation(updatedEducation);
+  };
+
+  const handleSavePersonalInformation = (
+    fullNameIn,
+    personalTitleIn,
+    personalAddressIn,
+    personalPhoneIn,
+    personalEmailIn,
+    personalDescriptionIn
+  ) => {
+    const updatedPersonalInformation = { ...personalInformation };
+    updatedPersonalInformation.fullName = fullNameIn;
+    updatedPersonalInformation.personalTitle = personalTitleIn;
+    updatedPersonalInformation.personalAddress = personalAddressIn;
+    updatedPersonalInformation.personalPhone = personalPhoneIn;
+    updatedPersonalInformation.personalEmail = personalEmailIn;
+    updatedPersonalInformation.personalDescription = personalDescriptionIn;
+
+    setPersonalInformation(updatedPersonalInformation);
+  };
+
   const printState = () => {
+    console.log(personalInformation);
     console.log(experiences);
+    console.log(education);
   };
 
   return (
@@ -71,12 +127,7 @@ function App() {
       <main className="main-container">
         <div className="input-container">
           <PersonalInformation
-            setFullName={setFullName}
-            setPersonalTitle={setPersonalTitle}
-            setPersonalAddress={setPersonalAddress}
-            setPersonalPhone={setPersonalPhone}
-            setPersonalEmail={setPersonalEmail}
-            setPersonalDescription={setPersonalDescription}
+            handleSavePersonalInformation={handleSavePersonalInformation}
           />
           <div className="Experiences">
             <h3>Experiences</h3>
@@ -90,7 +141,13 @@ function App() {
                 />
               );
             })}
+            <br />
             <button onClick={() => addExperience()}>Add Experience</button>
+          </div>
+
+          <div className="Education-Container">
+            <h3>Education</h3>
+            <Education handleSaveEducation={handleSaveEducation} />
           </div>
         </div>
 

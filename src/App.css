@@ -35,11 +35,14 @@
 /* Extra Box For Debugging */
 .debug {
   width: 700px;
-  height: 200px;
+  height: 100px;
 
   margin-top: 25px;
+  margin-bottom: 25px;
   padding: 25px;
 
+  display: flex;
+  justify-content: center;
   outline: auto;
 }
 
@@ -85,6 +88,17 @@ button:hover {
 }
 
 .experience-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Education Component */
+.Education-Container {
+  margin-top: 15px;
+}
+
+.educational-form {
   display: flex;
   flex-direction: column;
   gap: 5px;
