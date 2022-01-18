@@ -58,7 +58,8 @@ function App() {
     fromIn,
     toIn
   ) => {
-    experiences.forEach((experience) => {
+    const updatedExperiences = [...experiences];
+    updatedExperiences.forEach((experience) => {
       if (experience.id === experienceId) {
         experience.position = positionIn;
         experience.company = companyIn;
@@ -67,6 +68,8 @@ function App() {
         experience.to = toIn;
       }
     });
+
+    setExperiences(updatedExperiences);
   };
 
   const handleDeleteExperience = (id) => {
