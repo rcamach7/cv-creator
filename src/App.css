@@ -7,19 +7,20 @@
 
 .App {
   height: 100%;
+  padding-bottom: 50px;
 
   background-color: rgb(204, 204, 204);
 }
 
 /* Header */
 .App-header {
-  height: 100px;
+  height: 75px;
 
   color: white;
   font-family: "Comic Sans MS";
   font-size: 50px;
 
-  background-color: rgb(51, 51, 51);
+  background-color: rgb(20, 62, 112);
 
   display: flex;
   justify-content: center;
@@ -29,28 +30,14 @@
 /* main-container that holds input fields and generated CV */
 .main-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Extra Box For Debugging */
-.debug {
-  width: 700px;
-  height: 100px;
-
-  margin-top: 25px;
-  margin-bottom: 25px;
-  padding: 25px;
-
-  display: flex;
   justify-content: center;
-  background-color: bisque;
-  outline: auto;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 
 /* The container that holds all input related components  */
 .input-container {
-  width: 700px;
+  width: 600px;
 
   margin-top: 25px;
   padding: 15px;
@@ -61,6 +48,10 @@
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border: solid black 2.5px;
   border-radius: 5px;
+}
+
+.personalInformation-title {
+  text-align: center;
 }
 
 textarea,
@@ -78,6 +69,7 @@ button {
   padding: 2.5px 5px 2.5px 5px;
   border-radius: 10px;
   margin: 5px 2.5px 0 0;
+  cursor: pointer;
 }
 button:hover {
   background-color: rgb(191, 191, 191);
@@ -97,6 +89,22 @@ button:hover {
   background-color: rgb(20, 62, 112);
   margin-top: 25px;
   color: white;
+}
+
+.addExp-btn {
+  background-color: rgb(20, 62, 112);
+  color: white;
+}
+
+.file-upload {
+  display: none;
+}
+
+.label-file-upload {
+  border: solid 2px black;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /* Personal Information Input Component */
@@ -131,7 +139,9 @@ button:hover {
 /* OUTPUT Container  */
 
 .output-container {
-  width: 700px;
+  width: 600px;
+  min-height: 700px;
+  max-height: 700px;
 
   margin-top: 25px;
   padding: 10px;

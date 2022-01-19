@@ -1,5 +1,3 @@
-import stockImage from "../assets/stock.jpeg";
-
 function DisplayCV(props) {
   return (
     <div className="DisplayCV">
@@ -44,7 +42,7 @@ function DisplayCV(props) {
         </div>
         {/* The rest of the personal details goes here */}
         <div className="body-personalDetails">
-          <img src={stockImage} alt="" />
+          <img src={props.personalInformation.icon} alt="" />
           <p className="cv-section">Personal Details</p>
 
           <p className="cv-subSection">Address</p>

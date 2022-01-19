@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import stockImage from "./assets/stock.jpeg";
 import { v4 as uuidv4 } from "uuid";
 import PersonalInformation from "./components/PersonalInformation";
 import Experience from "./components/Experience";
@@ -16,6 +17,7 @@ function App() {
     personalPhone: "",
     personalEmail: "",
     personalDescription: "",
+    icon: null,
   });
   const [experiences, setExperiences] = useState([
     {
@@ -109,7 +111,8 @@ function App() {
     personalAddressIn,
     personalPhoneIn,
     personalEmailIn,
-    personalDescriptionIn
+    personalDescriptionIn,
+    iconIn
   ) => {
     const updatedPersonalInformation = { ...personalInformation };
     updatedPersonalInformation.fullName = fullNameIn;
@@ -118,6 +121,7 @@ function App() {
     updatedPersonalInformation.personalPhone = personalPhoneIn;
     updatedPersonalInformation.personalEmail = personalEmailIn;
     updatedPersonalInformation.personalDescription = personalDescriptionIn;
+    updatedPersonalInformation.icon = URL.createObjectURL(iconIn);
 
     setPersonalInformation(updatedPersonalInformation);
   };
@@ -132,6 +136,7 @@ function App() {
       personalEmail: "example@spacex.com",
       personalDescription:
         "My goal is to gain a challenging opportunity and to help create, improve, and innovate standard operation procedures to increase quality and speed to market, lower operating costs, resulting in an enhanced customer experience.",
+      icon: stockImage,
     };
 
     const exp = [
@@ -196,7 +201,9 @@ function App() {
                 />
               );
             })}
-            <button onClick={() => addExperience()}>Add Experience</button>
+            <button className="addExp-btn" onClick={() => addExperience()}>
+              Add Experience
+            </button>
           </div>
 
           <div className="Education-Container">
