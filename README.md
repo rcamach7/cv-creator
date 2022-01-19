@@ -2,6 +2,10 @@
 
 A web application that allows you to generate a CV with input fields. Utilizes React, HTML, CSS, and multiple libraries to give user dynamic experience.
 
+#### Live Demo
+
+[Gihub Pages](http://rcamach7.github.io/cv-creator/).
+
 #### Built Using:
 
 - React Framework
