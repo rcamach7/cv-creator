@@ -7,6 +7,7 @@ function PersonalInformation(props) {
   const [personalPhone, setPersonalPhone] = useState("");
   const [personalEmail, setPersonalEmail] = useState("");
   const [personalDescription, setPersonalDescription] = useState("");
+  const [icon, setIcon] = useState(null);
 
   useEffect(() => {
     if (!(props.personalInformation.fullName === "")) {
@@ -22,6 +23,7 @@ function PersonalInformation(props) {
   return (
     <div className="PersonalInformation">
       <form className="personalInformation-form">
+        <h2 className="personalInformation-title">Enter Information</h2>
         <h3>Personal Information</h3>
         <input
           type="text"
@@ -65,6 +67,16 @@ function PersonalInformation(props) {
           value={personalDescription}
           onChange={(e) => setPersonalDescription(e.target.value)}
         />
+        <label htmlFor="image_uploads" className="label-file-upload">
+          Choose Icon Picture
+        </label>
+        <input
+          className="file-upload"
+          type="file"
+          id="image_uploads"
+          accept=".jpg, .jpeg, .png"
+          onChange={(e) => setIcon(e.target.files[0])}
+        />
       </form>
       <button
         className="save-btn"
@@ -75,7 +87,8 @@ function PersonalInformation(props) {
             personalAddress,
             personalPhone,
             personalEmail,
-            personalDescription
+            personalDescription,
+            icon
           )
         }
       >
