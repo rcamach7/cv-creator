@@ -5,6 +5,7 @@ A web application that allows you to generate a CV with input fields. Utilizes R
 #### Live Demo
 
 [Gihub Pages](http://rcamach7.github.io/cv-creator/).
+![Website Demo](webDemo.gif)
 
 #### Built Using:
 
